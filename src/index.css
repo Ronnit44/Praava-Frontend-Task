@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    top: -10%;
+    left: -5%;
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    top: 10%;
+    right: -10%;
+    animation-delay: 5s;
+  }
+
+  .blob-3 {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    bottom: -15%;
+    left: 20%;
+    animation-delay: 10s;
+  }
+
+  .blob-4 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    bottom: 10%;
+    right: 15%;
+    animation-delay: 15s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(20px, -30px) scale(1.05);
+    }
+    50% {
+      transform: translate(-15px, 20px) scale(0.95);
+    }
+    75% {
+      transform: translate(25px, 15px) scale(1.02);
+    }
+  }
+
+  .floating-card {
+    animation: floatCard 6s ease-in-out infinite;
+  }
+
+  @keyframes floatCard {
+    0%, 100% {
+      transform: translateY(0) rotate(var(--rotation, 0deg));
+    }
+    50% {
+      transform: translateY(-20px) rotate(var(--rotation, 0deg));
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.dark .blob {
+  opacity: 0.15;
+}
+
+.dark .blob-1,
+.dark .blob-3 {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.dark .blob-2,
+.dark .blob-4 {
+  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
+}
